@@ -31,11 +31,11 @@ public Plugin myinfo = {
 };
 
 public void OnPluginStart() {
-    RegConsoleCmd("get5", Command_Get5);
-    RegConsoleCmd("practicemode", Command_PracticeMode);
+    RegConsoleCmd("useget5", Command_Get5Activate);
+    RegConsoleCmd("usepracticemode", Command_PracticeModeActivate);
 }
 
-public Action Command_Get5(int client, int args) {
+public Action Command_Get5Activate(int client, int args) {
     ServerCommand("sm plugins unload practicemode");
     char disabledPath[256], enabledPath[256];
     BuildPath(Path_SM, disabledPath, sizeof(disabledPath), "plugins/disabled/practicemode.smx");
@@ -48,7 +48,7 @@ public Action Command_Get5(int client, int args) {
     ServerCommand("sm plugins load get5");
 }
 
-public Action Command_PracticeMode(int client, int args) {
+public Action Command_PracticeModeActivate(int client, int args) {
     ServerCommand("sm plugins unload get5");
     char disabledPath[256], enabledPath[256];
     BuildPath(Path_SM, disabledPath, sizeof(disabledPath), "plugins/disabled/get5.smx");
