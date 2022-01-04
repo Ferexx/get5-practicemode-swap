@@ -46,6 +46,10 @@ public Action Command_Get5Activate(int client, int args) {
     BuildPath(Path_SM, enabledPath, sizeof(enabledPath), "plugins/get5.smx");
     RenameFile(enabledPath, disabledPath);
     ServerCommand("sm plugins load get5");
+    ServerCommand("sm plugins unload get5_apistats");
+    ServerCommand("sm plugins load get5_apistats");
+    ServerCommand("sm plugins unload get5discord");
+    ServerCommand("sm plugins load get5discord");
 }
 
 public Action Command_PracticeModeActivate(int client, int args) {
